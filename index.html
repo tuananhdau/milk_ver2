@@ -1,6 +1,6 @@
-<?php
+<!-- <?php
 session_start();
-?>
+?> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,11 +12,11 @@ session_start();
     <title>Milk</title>
 </head>
 <body>
-  <?php
+  <!-- <?php
     if(!isset($_SESSION["user"])){
       header("location:dangnhap.php");
     }
-  ?>
+  ?> -->
     <header>
         <div class="header">
             <div class="logo">
@@ -28,7 +28,6 @@ session_start();
                 <button class="filter-btn">Tìm Kiếm</button>
             </div>
             <div class="user-cart">
-              <i class="fas fa-user"></i>
                 <div class="user">
                   <button type="submit">Đăng nhập</button>
                 </div>
@@ -75,7 +74,30 @@ session_start();
                 <source src="./img/canva-EOeq7D2wVa0.mp4" type="video/mp4">
               </video>
       </div>
+      <div class="features">
+        <div class="feature-box">
+            <i class="fas fa-truck"></i>
+            <h3>GIAO HÀNG NHANH</h3>
+            <p>Cho tất cả đơn hàng</p>
+        </div>
+        <div class="feature-box">
+            <i class="fas fa-shield-heart"></i>
+            <h3>SẢN PHẨM AN TOÀN</h3>
+            <p>Cam kết chất lượng</p>
+        </div>
+        <div class="feature-box">
+            <i class="fas fa-headphones"></i>
+            <h3>HỖ TRỢ 24/7</h3>
+            <p>Tất cả ngày trong tuần</p>
+        </div>
+        <div class="feature-box">
+            <i class="fas fa-dollar-sign"></i>
+            <h3>HOÀN LẠI TIỀN</h3>
+            <p>Nếu không hài lòng</p>
+        </div>
+    </div>
       <div class="product-section">
+
         <div class="item1">
           <img src="https://www.vinamilk.com.vn/static/tpl/dist/assets/images/global/logo.webp?v=070723" alt="">
         </div>
@@ -83,15 +105,16 @@ session_start();
           <img src="https://www.thmilk.vn/wp-content/themes/wp-th/assets/images/logo.png?%3E" alt="">
         </div>
         <div class="item3">
-          <img src="https://www.dutchlady.com.vn/themes/contrib/yg_business/logo.png" alt="">
+          <img src="https://quyhyvong.com/wp-content/uploads/2021/11/Logo-Dutch-Lady.png" alt="">
         </div>
         <div class="item4">
           <img src="https://nutifood.com.vn/img/logo-nutifood-green.svg" alt="">
         </div>
         <div class="item5">
-          <img src="https://mcmilk.com.vn/wp-content/uploads/2023/07/NEW-logo.png" alt="">
+         <img src="https://mcmilk.com.vn/wp-content/uploads/2023/07/NEW-logo.png" alt="">
         </div>
       </div>
+
       <div class="spham">
         <h1>Danh mục sản phẩm</h1>
         <div class="product-list">
@@ -143,15 +166,48 @@ session_start();
               <input type="number" min="1" value="1">
             </div>
           </div>
+      </div>
+    </div>
       <!-- cuoi trang-->
-      <div class="footer">
-        <p>&copy; 2023 Milk Company. All rights reserved.</p>
-        <div class="social-media">
-          <a href="#"><i class="fab fa-facebook"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-linkedin"></i></a>
-        </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+      <footer>
+        <div class="footer">
+          <div class="footer">
+            <div class="row">
+              <div class="footer-col">
+                <h4>Sản Phẩm</h4>
+                <ul>
+                  <li><a href="#">TH True Milk</a></li>
+                  <li><a href="#">Vinamilk</a></li>
+                  <li><a href="#">Dutch Lady</a></li>
+                </ul>
+              </div>
+              <div class="footer-col">
+                <h4>Hỗ Trợ</h4>
+                <ul>
+                  <li><a href="#">FaceBook</a></li>
+                  <li><a href="#">Instagram</a></li>
+                </ul>
+              </div>
+              <div class="footer-col">
+                <h4>Chi Nhánh</h4>
+                <ul>
+                  <li><a href="#">Đà Nẵng</a></li>
+                  <li><a href="#">Hà Nội</a></li>
+                  <li><a href="#">TP HCM</a></li>
+                </ul>
+              </div>
+              <div class="footer-icon">
+                <h4>Follow us</h4>
+                <ul>
+                  <li><i class="fa-brands fa-facebook"></i></li>
+                  <li><i class="fa-brands fa-github"></i></li>
+                  <li><i class="fa-brands fa-instagram"></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          </div>
+      </footer>
+    <script src="/js/index.js"></script>
 </body>
 </html>

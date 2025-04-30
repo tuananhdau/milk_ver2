@@ -14,18 +14,33 @@ session_start();
     
     if(isset($_POST["submit"])){
         $user = $_POST['username'];
-        $pass = md5($_POST['password']);
+        $pass = $_POST['password'];
         require_once('ketnoi.php');
-        $sql= "select * from user where username = '$user' and password = '$pass'";
-        $kq=mysqli_query($conn,$sql);
+        $sql ="select *from user where username ='$user'";
+        $kq= mysqli_query($conn,query: $sql);
+
         if(mysqli_num_rows($kq)> 0){
-            $_SESSION['user']=$user;
-            mysqli_close($conn);
-            header("location:index.php");
+            $row = mysqli_fetch_assoc($kq);
+            $pass_hash= $row["password"];
+            if(password_verify($pass,$pass_hash)){
+                $_SESSION["user"] = $user;
+                mysqli_close($conn);
+                header("location:index.php");
+            }else{
+                echo "khong ton tai nguoi dung trong he thong".mysqli_error($conn);
+            }
         }
-        else{
-            echo"Khong Ton tai Nguoi dung".mysqli_error( $conn);
-        }
+
+        // $sql= "select * from user where username = '$user' and password = '$pass'";
+        // $kq=mysqli_query($conn,$sql);
+        // if(mysqli_num_rows($kq)> 0){
+        //     $_SESSION['user']=$user;
+        //     mysqli_close($conn);
+        //     header("location:index.php");
+        // }
+        // else{
+        //     echo"Khong Ton tai Nguoi dung".mysqli_error( $conn);
+        // }
     }
     ?>
     <div class="container">
