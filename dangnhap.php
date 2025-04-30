@@ -10,39 +10,43 @@ session_start();
     <title>Login</title>
 </head>
 <body>
-    <?php
-    
-    if(isset($_POST["submit"])){
-        $user = $_POST['username'];
-        $pass = $_POST['password'];
-        require_once('ketnoi.php');
-        $sql ="select *from user where username ='$user'";
-        $kq= mysqli_query($conn,query: $sql);
+<?php
 
-        if(mysqli_num_rows($kq)> 0){
-            $row = mysqli_fetch_assoc($kq);
-            $pass_hash= $row["password"];
-            if(password_verify($pass,$pass_hash)){
-                $_SESSION["user"] = $user;
-                mysqli_close($conn);
-                header("location:index.php");
-            }else{
-                echo "khong ton tai nguoi dung trong he thong".mysqli_error($conn);
+
+if (isset($_POST["submit"])) {
+    $user = $_POST['username'];
+    $pass = $_POST['password'];
+
+    require_once('ketnoi.php'); // Kết nối CSDL
+
+    $sql = "SELECT * FROM user WHERE username = '$user'";
+    $kq = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($kq) > 0) {
+        $row = mysqli_fetch_assoc($kq);
+        $pass_hash = $row["password"];
+
+        if (password_verify($pass, $pass_hash)) {
+            $_SESSION["user"] = $user;
+            $_SESSION["role"] = $row["role"]; // Lưu vai trò người dùng
+
+            mysqli_close($conn);
+
+            // Chuyển hướng dựa vào vai trò
+            if ($row["role"] === 'admin') {
+                header("Location: admin/admin.php");
+            } else {
+                header("Location: index.php");
             }
+            exit;
+        } else {
+            echo "Sai mật khẩu.";
         }
-
-        // $sql= "select * from user where username = '$user' and password = '$pass'";
-        // $kq=mysqli_query($conn,$sql);
-        // if(mysqli_num_rows($kq)> 0){
-        //     $_SESSION['user']=$user;
-        //     mysqli_close($conn);
-        //     header("location:index.php");
-        // }
-        // else{
-        //     echo"Khong Ton tai Nguoi dung".mysqli_error( $conn);
-        // }
+    } else {
+        echo "Người dùng không tồn tại.";
     }
-    ?>
+}
+?>
     <div class="container">
         <h2>Đăng Nhập</h2>
         <form method="post">

@@ -29,7 +29,14 @@ session_start();
             </div>
             <div class="user-cart">
                 <div class="user">
-                  <button type="submit">Đăng nhập</button>
+                                  <?php
+                    if (isset($_SESSION["user"])) {
+                        echo '<span>Hello, ' . htmlspecialchars($_SESSION["user"]) . '</span> ';
+                        echo '<a href="dangxuat.php">Đăng xuất</a>';
+                    } else {
+                        echo '<a href="dangnhap.php">Đăng nhập</a>';
+                    }
+                    ?>
                 </div>
                 <div class="cart">
                     <i class="fas fa-shopping-basket"></i>
