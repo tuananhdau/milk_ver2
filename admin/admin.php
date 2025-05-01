@@ -24,7 +24,7 @@ require_once("../ketnoi.php"); // Kết nối cơ sở dữ liệu
 
         <!-- Gợi ý thêm menu điều hướng -->
         <ul>
-            <li><a href="quanlyspham.php">Quản lý sản phẩm</a></li>
+            <li><a href="quanlysp/quanlyspham.php">Quản lý sản phẩm</a></li>
             <li><a href="user.php">Quản lý người dùng</a></li>
             <li><a href="#">Thống kê đơn hàng</a></li>
         </ul>
