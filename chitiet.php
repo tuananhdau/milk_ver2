@@ -28,15 +28,104 @@ $ct   = nl2br(htmlspecialchars($product['chitiet']));
     <meta charset="UTF-8">
     <title>Chi tiết: <?= $name ?></title>
     <style>
-        * {margin: 0;padding: 0; box-sizing: border-box; }
+       /* Reset default margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        .detail { width: 420px; margin: 40px 450px; border: 2px solid black; justify-content: center; padding: 30px; border-radius: 10px; background-color: #f9f9f9; }
-        .detail img { max-width: 300px; display: block; margin-bottom: 20px; }
-        .detail h2 { margin-bottom: 10px; }
-        .detail p { margin-bottom: 15px; }
-        .actions { margin-top: 20px; }
-        .actions form, .actions a { display: inline-block; margin-right: 10px;  }
-        button{width: 100px; height: 50px; background-color: aqua; border-radius:20px ;}
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+}
+
+/* Detail container */
+.detail {
+    width: 420px;
+    margin: 40px auto;
+    padding: 30px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.detail img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.detail h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.detail p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.detail p strong {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Action buttons */
+.actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.actions form, .actions a {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 20px;
+ 
+    background-color: #00c4cc;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #00a3a3;
+}
+
+a button {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+}
+
+a button:hover {
+    background-color: #e0e0e0;
+}
+
+/* Link styles */
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
     </style>
 </head>
 <body>

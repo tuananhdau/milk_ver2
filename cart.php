@@ -18,12 +18,89 @@ $cart = $_SESSION['cart'] ?? [];
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/giohang.css">
     <title>Giỏ hàng</title>
     <style>
-        table { border-collapse: collapse; width: 70%; margin: 20px auto; }
-        th, td { border: 1px solid #ccc; padding: 10px; text-align: center; }
-        h2 { text-align: center; }
-        .checkout, .empty { text-align: center; margin-top: 20px; }
+       body {
+    font-family:  Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 28px;
+    color: #333;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #e9e9e9;
+}
+
+a {
+    text-decoration: none;
+    color: #dc3545;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #c82333;
+}
+
+.checkout {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.checkout button {
+    padding: 12px 30px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.checkout button:hover {
+    background-color: #0056b3;
+}
+
+.empty {
+    text-align: center;
+    font-size: 18px;
+    color: #888;
+    margin-top: 40px;
+}
+
     </style>
 </head>
 <body>

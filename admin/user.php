@@ -30,10 +30,113 @@ $result = $conn->query("SELECT * FROM user");
   <meta charset="UTF-8">
   <title>Quản lý người dùng</title>
   <style>
-    table, th, td { border: 1px solid black; border-collapse: collapse; padding: 8px; }
-    table { width: 100%; }
-    th { background: #eee; }
-    form { margin-top: 20px; }
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+  font-family:  Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+th, td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+th {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: 600;
+}
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+tr:hover {
+    background-color: #e9e9e9;
+}
+
+table a {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #dc3545;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+table a:hover {
+    background-color: #c82333;
+}
+
+form {
+    background: #fafafa;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+form input {
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 4px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+form input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+button[name="add"] {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+button[name="add"]:hover {
+    background-color: #218838;
+}
   </style>
 </head>
 <body>

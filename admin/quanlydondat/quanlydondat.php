@@ -12,10 +12,101 @@ $result = mysqli_query($conn, $sql);
     <meta charset="UTF-8">
     <title>Quản lý đơn đặt hàng</title>
     <style>
-        table { width: 90%; margin: auto; border-collapse: collapse; }
-        th, td { border: 1px solid #ccc; padding: 10px; text-align: center; }
-        h2 { text-align: center; margin: 20px 0; }
-        .detail { margin-top: 10px; margin-bottom: 30px; }
+       /* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    text-align: center;
+    margin: 30px 0;
+    font-size: 32px;
+    color: #333;
+}
+
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+.detail {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    margin: 20px auto;
+}
+
+.detail h3 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.detail table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.detail th, .detail td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.detail th {
+    background-color: #007bff;
+    color: white;
+}
+
+.detail tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.detail tr:hover {
+    background-color: #f1f1f1;
+}
+
+
     </style>
 </head>
 <body>
