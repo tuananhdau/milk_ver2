@@ -1,4 +1,4 @@
-/* Reset cơ bản */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -11,7 +11,6 @@ body {
     color: #333;
 }
 
-/* Navbar */
 .navbar {
     background-color: #007bff;
     color: white;
@@ -32,12 +31,10 @@ body {
     text-decoration: underline;
 }
 
-/* Container */
 .container {
     padding: 30px;
 }
 
-/* Admin Dashboard UI */
 h1 {
     font-size: 28px;
     margin-bottom: 20px;
@@ -62,7 +59,6 @@ ul li a:hover {
     text-decoration: underline;
 }
 
-/* Login Box */
 .login-box {
     background-color: white;
     max-width: 350px;

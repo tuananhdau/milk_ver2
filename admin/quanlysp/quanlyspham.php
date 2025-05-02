@@ -1,5 +1,5 @@
 <?php
-require_once("../../ketnoi.php"); // Kết nối CSDL
+require_once("../../ketnoi.php");
 session_start();
 ?>
 <!DOCTYPE html>
@@ -54,7 +54,6 @@ session_start();
                     echo "<td><a href='xoa.php?id=" . $row['id'] . "' onclick=\"return confirm('Bạn có chắc muốn xóa sản phẩm này?');\">Xóa</a></td>";
                     echo "</tr>";
                 }
-
                 mysqli_close($conn);
                 ?>
             </table>

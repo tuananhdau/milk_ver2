@@ -17,7 +17,7 @@ if (isset($_POST["submit"])) {
     $user = $_POST['username'];
     $pass = $_POST['password'];
 
-    require_once('ketnoi.php'); // Kết nối CSDL
+    require_once('ketnoi.php'); 
 
     $sql = "SELECT * FROM user WHERE username = '$user'";
     $kq = mysqli_query($conn, $sql);
@@ -28,11 +28,10 @@ if (isset($_POST["submit"])) {
 
         if (password_verify($pass, $pass_hash)) {
             $_SESSION["user"] = $user;
-            $_SESSION["role"] = $row["role"]; // Lưu vai trò người dùng
+            $_SESSION["role"] = $row["role"]; 
 
             mysqli_close($conn);
 
-            // Chuyển hướng dựa vào vai trò
             if ($row["role"] === 'admin') {
                 header("Location: admin/admin.php");
             } else {

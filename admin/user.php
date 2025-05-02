@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once("../ketnoi.php"); // Kết nối cơ sở dữ liệu
-// Thêm người dùng
+require_once("../ketnoi.php");
+
 if (isset($_POST['add'])) {
     $username = $_POST['username'];
     $email = $_POST['email'];
@@ -14,7 +14,6 @@ if (isset($_POST['add'])) {
     exit;
 }
 
-// Xoá người dùng
 if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
     $conn->query("DELETE FROM user WHERE id = $id");
@@ -22,7 +21,6 @@ if (isset($_GET['delete'])) {
     exit;
 }
 
-// Lấy danh sách người dùng
 $result = $conn->query("SELECT * FROM user");
 ?>
 

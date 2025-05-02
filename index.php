@@ -1,6 +1,6 @@
-<!-- <?php
+ <?php
 session_start();
-?> -->
+?> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,11 +12,11 @@ session_start();
     <title>Milk</title>
 </head>
 <body>
-  <!-- <?php
+   <?php
     if(!isset($_SESSION["user"])){
       header("location:dangnhap.php");
     }
-  ?> -->
+  ?> 
     <header>
         <div class="header">
             <div class="logo">
@@ -40,46 +40,42 @@ session_start();
                 </div>
                 <div class="cart">
                     <i class="fas fa-shopping-basket"></i>
-                    <span>Giỏ hàng</span>
+                    <a href="giohang.php"><span>Giỏ hàng</span></a>
                 </div>
             </div>
         </div>
     </header>
-    <!-- Phần menu cấp 2 -->
     <div class="navbar">
         <a href="#home">Trang Chủ</a>
         <div class="subnav">
           <button class="subnavbtn">Sản Phẩm <i class="fa fa-caret-down"></i></button>
           <div class="subnav-content">
-            <a href="#company">TH True Milk</a>
-            <a href="#team">Vinamilk</a>
-            <a href="#careers">Dutch Lady</a>
+            <a href="#">TH True Milk</a>
+            <a href="#">Vinamilk</a>
+            <a href="#">Dutch Lady</a>
           </div>
         </div>
         <div class="subnav">
           <button class="subnavbtn">Khuyến Mãi <i class="fa fa-caret-down"></i></button>
           <div class="subnav-content">
-            <a href="#bring">Giảm 30%</a>
-            <a href="#deliver">Giảm 10%</a>
-            <a href="#package">FreeShip</a>
-            <a href="#express">Giảm 20%</a>
+            <a href="#">Giảm 30%</a>
+            <a href="#">Giảm 10%</a>
+            <a href="#">FreeShip</a>
+            <a href="#">Giảm 20%</a>
           </div>
         </div>
         <div class="subnav">
           <button class="subnavbtn">Chi Nhánh <i class="fa fa-caret-down"></i></button>
           <div class="subnav-content">
-            <a href="#link1">Đà Nẵng</a>
-            <a href="#link2">Hà Nội</a>
-            <a href="#link3">TP HCM</a>
+            <a href="#">Đà Nẵng</a>
+            <a href="#">Hà Nội</a>
+            <a href="#">TP HCM</a>
           </div>
         </div>
         <a href="#contact">Liên Hệ</a>
       </div>
-      <!-- Phần banner video dung autoplayautoplay loop để lặp lại -->
       <div class="banner">
-            <video autoplay loop muted playsinline>
-                <source src="./img/canva-EOeq7D2wVa0.mp4" type="video/mp4">
-              </video>
+            <img src="img/bannerbody.png" alt="">
       </div>
       <div class="features">
         <div class="feature-box">
@@ -120,39 +116,46 @@ session_start();
         <div class="item5">
          <img src="https://mcmilk.com.vn/wp-content/uploads/2023/07/NEW-logo.png" alt="">
         </div>
+        <div class="item6">
+         <img src="https://suabavi.net/wp-content/uploads/2019/10/logo-xanh-1024x1024.png" alt="">
+        </div>
+        <div class="item7">
+         <img src="https://png.pngtree.com/png-vector/20221207/ourmid/pngtree-dairy-food-logo-milk-yoghurt-and-lecho-farm-badges-design-with-png-image_6515855.png" alt="">
+        </div>
       </div>
 
       <div class="spham">
       <h1>Danh Mục Sản Phẩm</h1>
     <div class="product-list">
-        <?php
-        require_once("ketnoi.php"); // hoặc đúng đường dẫn đến file chứa kết nối
-        $sql = "SELECT * FROM product ORDER BY id DESC";
-        $result = mysqli_query($conn, $sql);
+          <?php
+      require_once("ketnoi.php");
+      $sql = "SELECT * FROM product ORDER BY id DESC";
+      $result = mysqli_query($conn, $sql);
 
-        while ($row = mysqli_fetch_assoc($result)) {
-          
-          // Trong vòng lặp while ($row = mysqli_fetch_assoc($result)) {
+      while ($row = mysqli_fetch_assoc($result)) {
+          $id   = $row['id'];
+          $name = htmlspecialchars($row['name']);
+          $img  = htmlspecialchars($row['img']);
+          $gia  = number_format($row['gia']);
+          $ct   = htmlspecialchars($row['chitiet']);
           echo "<div class='product'>";
-          echo "<img src='img/" . htmlspecialchars($row['img']) . "' alt='" . htmlspecialchars($row['name']) . "'>";
-          echo "<h3>" . htmlspecialchars($row['name']) . "</h3>";
-          echo "<p>Giá: " . number_format($row['gia']) . " VNĐ</p>";
-          echo "<p>" . htmlspecialchars($row['chitiet']) . "</p>";
-          
-          echo "<form method='post' action='muahang.php'>";
-          echo "<input type='hidden' name='id' value='" . $row['id'] . "'>";
-          echo "<button type='submit'>🛒 Mua hàng</button>";
-          echo "</form>";
-          
+          echo "  <a href='chitiet.php?id=$id'>";
+          echo "    <img src='img/$img' alt='$name'>";
+          echo "    <h3>$name</h3>";
+          echo "  </a>";
+          echo "  <p>Giá: {$gia} VNĐ</p>";
+          echo "  <p>" . mb_strimwidth($ct, 0, 100, '...') . "</p>";
+          echo "  <form method='post' action='giohang.php'>";
+          echo "    <input type='hidden' name='id' value='$id'>";
+          echo "    <button type='submit'>🛒 Mua hàng</button>";
+          echo "  </form>";
           echo "</div>";
-          
-        }
+      }
+      mysqli_close($conn);
+      ?>
 
-        mysqli_close($conn);
-        ?>
     </div>
     </div>
-      <!-- cuoi trang-->
       <footer>
         <div class="footer">
           <div class="footer">

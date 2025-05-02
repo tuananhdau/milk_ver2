@@ -6,7 +6,8 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: #eaf4fb; /* giống nền trong ảnh */
+   
+    background-color: #ffffff;
 }
 
 .header {
@@ -70,33 +71,24 @@ body {
     align-items: center;
 }
 
-.user-cart i {
-    font-size: 20px;
-    margin-right: 5px;
-    color: #2e9bdf;
-}
-
-.user {
+.user a {
     margin-right: 20px;
     cursor: pointer;
     display: flex;
     flex-direction: column;
     font-size: 14px;
-}
-.user button{
-    padding: 10px 10px;
-    border-radius: 30px;
-    background-color: #2e9bdf;
-    color: #fff;
-}
-.user button:hover{
-    background-color: black;
+    text-decoration: none;
 }
 .cart {
     display: flex;
     align-items: center;
     cursor: pointer;
     position: relative;
+}
+.cart a{
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
 }
 .navbar {
     overflow: hidden;
@@ -142,7 +134,7 @@ body {
     display: none;
     position: absolute;
     background-color: #2e9bdf;
-    min-width: 160px; /* Độ rộng dropdown */
+    min-width: 160px;
     box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
     z-index: 1;
   }
@@ -183,7 +175,7 @@ body {
 }
 .feature-box {
   flex: 1;
-  background:  #eaf4fb;
+  background:  white;
   border-radius: 10px;
   padding: 20px;
   text-align: center;
@@ -218,7 +210,7 @@ body {
   height: 150px;
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 70px;
     padding: 25px 20px;
     margin: 10px 10px;
 
@@ -254,6 +246,20 @@ body {
     width: 80px;
   }
   .item5:hover{
+    border-bottom: 2px solid rgb(56, 145, 172);
+  }
+  .item6 img{
+    width: 60px;
+    padding-top: 10px;
+  }
+  .item6:hover{
+    border-bottom: 2px solid rgb(56, 145, 172);
+  }
+  .item7 img{
+    width: 80px;
+  
+  }
+  .item7:hover{
     border-bottom: 2px solid rgb(56, 145, 172);
   }
   .spham {
@@ -307,6 +313,13 @@ body {
     color: #555;
     margin-bottom: 8px;
 }
+.product a{
+    text-decoration: none;
+    color: #2e9bdf;
+    font-size: 14px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
 
 .product button {
     background-color: #28a745;
@@ -322,28 +335,13 @@ body {
 .product button:hover {
     background-color: #218838;
 }
-
-.action-column {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 10px;
-  transition: all 0.3s ease;
-}
-
-.action-column button,
-.action-column input {
-  margin: 5px 0;
-  width: 150px;
-  height: 30px;
-  text-align: center;
-}
 footer{
   width: 100%;
   height: 150px;
- background-color: #1d1a1a;
- color: white;
- box-shadow: 0 0 10px rgba(21, 19, 19, 0.2);
+ background-image: url('https://nutifood.com.vn/img/shape-footer-1440.svg');
+ color: rgb(7, 5, 5);
+ border-top:2px solid #0e0f0f;
+
 }
 .row{
       display: flex;
@@ -359,7 +357,7 @@ footer{
 }
 .footer ul li a {
     text-decoration: none;
-    color: white;
+    color: rgb(8, 8, 8);
     font-size: 14px;
     padding: 5px 0;
 }
@@ -372,7 +370,7 @@ footer{
     justify-content: center;
     width: 10px;
     height: 10px;
-    color: white;
+    color: rgb(7, 7, 7);
 }
 .footer-col a:hover{
   color: #2e9bdf;
@@ -385,13 +383,13 @@ footer{
 .footer-col h4{
   font-size: 20px;
   margin-bottom: 5px;
-  color: white;
+  color: rgb(14, 13, 13);
   border-bottom: 2px solid #2e9bdf;
 }
 .footer-icon h4{
   font-size: 20px;
   margin-bottom: 5px;
-  color: white;
+  color: rgb(2, 2, 2);
   border-bottom: 2px solid #2e9bdf;
 }
 
