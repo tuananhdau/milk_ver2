@@ -17,10 +17,10 @@ if (mysqli_num_rows($result) === 0) {
 }
 
 $product = mysqli_fetch_assoc($result);
-$name = htmlspecialchars($product['name']);
-$img  = htmlspecialchars($product['img']);
+$name = $product['name'];
+$img  = $product['img'];
 $gia  = number_format($product['gia']);
-$ct   = nl2br(htmlspecialchars($product['chitiet']));
+$ct   = nl2br($product['chitiet']);
 ?>
 <!DOCTYPE html>
 <html lang="vi">
@@ -28,20 +28,19 @@ $ct   = nl2br(htmlspecialchars($product['chitiet']));
     <meta charset="UTF-8">
     <title>Chi tiết: <?= $name ?></title>
     <style>
-       /* Reset default margins and paddings */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body styles */
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f6f9;
 }
 
-/* Detail container */
+
 .detail {
     width: 420px;
     margin: 40px auto;
@@ -77,7 +76,7 @@ body {
     color: #333;
 }
 
-/* Action buttons */
+
 .actions {
     margin-top: 20px;
     display: flex;
@@ -115,7 +114,6 @@ a button:hover {
     background-color: #e0e0e0;
 }
 
-/* Link styles */
 a {
     text-decoration: none;
     color: #007bff;

@@ -27,16 +27,15 @@ session_start();
                 <input type="text" placeholder="Tìm kiếm...">
                 <button class="filter-btn">Tìm Kiếm</button>
             </div>
-            <div class="user-cart">
-                <div class="user">
-                                  <?php
-                    if (isset($_SESSION["user"])) {
-                        echo '<span>Hello, ' . htmlspecialchars($_SESSION["user"]) . '</span> ';
-                        echo '<a href="dangxuat.php">Đăng xuất</a>';
-                    } else {
-                        echo '<a href="dangnhap.php">Đăng nhập</a>';
-                    }
-                    ?>
+            <div class="user">
+                  <?php
+                  if (isset($_SESSION["user"])) {
+                      echo '<span>Hello, ' . $_SESSION["user"] . '</span> ';
+                      echo '<a href="dangxuat.php">Đăng xuất</a>';
+                  } else {
+                      echo '<a href="dangnhap.php">Đăng nhập</a>';
+                  }
+                  ?>
                 </div>
                 <div class="cart">
                     <i class="fas fa-shopping-basket"></i>
@@ -125,37 +124,41 @@ session_start();
       </div>
 
       <div class="spham">
-      <h1>Danh Mục Sản Phẩm</h1>
-    <div class="product-list">
-          <?php
-      require_once("ketnoi.php");
-      $sql = "SELECT * FROM product ORDER BY id DESC";
-      $result = mysqli_query($conn, $sql);
+  <h1>Danh Mục Sản Phẩm</h1>
+  <div class="product-list">
+    <?php
+    require_once("ketnoi.php");
+    $sql = "SELECT * FROM product ORDER BY id DESC";
+    $result = mysqli_query($conn, $sql);
 
-      while ($row = mysqli_fetch_assoc($result)) {
-          $id   = $row['id'];
-          $name = htmlspecialchars($row['name']);
-          $img  = htmlspecialchars($row['img']);
-          $gia  = number_format($row['gia']);
-          $ct   = htmlspecialchars($row['chitiet']);
-          echo "<div class='product'>";
-          echo "  <a href='chitiet.php?id=$id'>";
-          echo "    <img src='img/$img' alt='$name'>";
-          echo "    <h3>$name</h3>";
-          echo "  </a>";
-          echo "  <p>Giá: {$gia} VNĐ</p>";
-          echo "  <p>" . mb_strimwidth($ct, 0, 100, '...') . "</p>";
-          echo "  <form method='post' action='giohang.php'>";
-          echo "    <input type='hidden' name='id' value='$id'>";
-          echo "    <button type='submit'>🛒 Mua hàng</button>";
-          echo "  </form>";
-          echo "</div>";
-      }
-      mysqli_close($conn);
-      ?>
+    if (mysqli_num_rows($result) == 0) {
+        echo "<p>Hiện chưa có sản phẩm nào.</p>";
+    }
 
-    </div>
-    </div>
+    while ($row = mysqli_fetch_assoc($result)) {
+        $id   = $row['id'];
+        $name = $row['name'];
+        $img  = $row['img']; 
+        $gia  = number_format($row['gia']);
+        $ct   = $row['chitiet']; 
+
+        echo "<div class='product'>";
+        echo "  <a href='chitiet.php?id=$id'>";
+        echo "    <img src='img/$img' alt='$name'>";
+        echo "    <h3>$name</h3>";
+        echo "  </a>";
+        echo "  <p>Giá: {$gia} VNĐ</p>";
+        echo "  <p>" . mb_strimwidth($ct, 0, 100, '...') . "</p>";
+        echo "  <form method='post' action='giohang.php'>";
+        echo "    <input type='hidden' name='id' value='$id'>";
+        echo "    <button type='submit'>🛒 Mua hàng</button>";
+        echo "  </form>";
+        echo "</div>";
+    }
+    mysqli_close($conn);
+    ?>
+  </div>
+</div>
       <footer>
         <div class="footer">
           <div class="footer">
@@ -195,6 +198,5 @@ session_start();
           </div>
           </div>
       </footer>
-    <script src="/js/index.js"></script>
 </body>
 </html>

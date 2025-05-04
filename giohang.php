@@ -2,9 +2,9 @@
 session_start();
 require_once("ketnoi.php");
 
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
-    $id = (int) $_POST['id'];
+    $id = (int) $_POST['id'];  
+
     $sql = "SELECT * FROM product WHERE id = $id";
     $result = mysqli_query($conn, $sql);
     $product = mysqli_fetch_assoc($result);

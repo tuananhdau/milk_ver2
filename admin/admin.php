@@ -2,13 +2,12 @@
 session_start();
 require_once("../ketnoi.php");
 
-// Kiểm tra nếu chưa đăng nhập
 if (!isset($_SESSION["user"]) || !isset($_SESSION["role"])) {
     header("Location: ../dangnhap.php");
     exit();
 }
 
-// Chỉ cho phép admin truy cập trang này
+
 if ($_SESSION["role"] !== "admin") {
     header("Location: ../index.php");
     exit();

@@ -82,7 +82,6 @@ button[type="submit"]:hover {
     background-color: #0056b3;
 }
 
-/* Liên kết quay lại */
 a {
     display: block;
     text-align: center;

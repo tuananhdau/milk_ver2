@@ -45,9 +45,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <title>Thanh toán</title>
     <style>
-        /* thanhtoan.css */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family:  Arial, sans-serif;
     background-color: #f4f6f9;
     color: #333;
     margin: 0;
